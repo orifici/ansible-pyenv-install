@@ -25,8 +25,7 @@ pip install -r requirements.txt
 ```
 
 ## Running molecule
-|:warning: Before running molecule make sure you have installed all packages in requirements.txt |
-|: ------ : |
+:warning: Before running molecule make sure you have installed all packages in requirements.txt 
 
 ```bash
 molecule test
