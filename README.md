@@ -1,3 +1,5 @@
+[![Molecule Test](https://github.com/orifici/ansible-pyenv-install/actions/workflows/molecule-ci.yml/badge.svg)](https://github.com/orifici/ansible-pyenv-install/actions/workflows/molecule-ci.yml)
+
 # Ansible pyenv install
 
 An Ansible role to install pyenv
@@ -25,7 +27,7 @@ pip install -r requirements.txt
 ```
 
 ## Running molecule
-:warning: Before running molecule make sure you have installed all packages in requirements.txt 
+:warning: Before running molecule make sure you have installed all packages in requirements.txt
 
 ```bash
 molecule test
