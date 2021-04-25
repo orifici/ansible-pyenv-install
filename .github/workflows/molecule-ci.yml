@@ -14,7 +14,7 @@ on:
 jobs:
   default-scenario:
     name: Molecule test - default scenario
-    runs-on: fedora-latest
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         python-version: [3.8, 3.9]
