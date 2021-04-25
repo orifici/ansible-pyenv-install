@@ -1,0 +1,11 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: "Include ansible-pyenv-install"
+      vars:
+        os_users:
+          root:
+            home: "/root"
+      include_role:
+        name: "ansible-pyenv-install"

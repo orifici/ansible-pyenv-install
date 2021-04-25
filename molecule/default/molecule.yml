@@ -1,0 +1,19 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+lint: |
+  set -e
+  yamllint .
+  ansible-lint --force-color --offline -p molecule/default/converge
+  ansible-lint --force-color --offline -p tasks/main
+  flake8
+platforms:
+  - name: fedora33-pyenv
+    image: fedora:33
+    pre_build_image: true
+provisioner:
+  name: ansible
+verifier:
+  name: testinfra

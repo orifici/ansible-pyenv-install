@@ -1,0 +1,15 @@
+---
+pyenv_deps:
+  - zlib-devel
+  - bzip2
+  - bzip2-devel
+  - readline-devel
+  - sqlite
+  - sqlite-devel
+  - openssl-devel
+  - xz
+  - xz-devel
+  - libffi-devel
+  - git
+
+os_users: {}

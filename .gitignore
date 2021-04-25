@@ -1,0 +1,8 @@
+*.retry
+*.pyc
+__pycache__/
+.molecule/
+.cache/
+
+# pyenv
+.python-version

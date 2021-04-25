@@ -1,0 +1,13 @@
+---
+galaxy_info:
+    role_name: ansible_pyenv_install
+    author: orifici
+    description: An Ansible role to install pyenv
+    license: Mit
+    min_ansible_version: 2.1
+    platforms:
+        - name: Fedora
+          versions:
+              - 33
+    galaxy_tags: []
+    dependencies: []

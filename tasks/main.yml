@@ -1,0 +1,33 @@
+---
+
+- name: Install required packages
+  ansible.builtin.dnf:
+    name: "{{ pyenv_deps }}"
+    state: present
+
+- name: Install pyenv for all listed users
+  shell: cd "{{ item.value.home }}" && curl https://pyenv.run | bash
+  args:
+    creates: "{{ item.value.home }}/.pyenv"
+  environment:
+    HOME:  "{{ item.value.home }}"
+  loop: "{{ lookup('dict', os_users, wantlist=True) }}"
+
+- name: Set permissions
+  ansible.builtin.file:
+    path: "{{ item.value.home }}/.pyenv"
+    owner: "{{ item.key }}"
+    group: "{{ item.key }}"
+    state: directory
+  loop: "{{ lookup('dict', os_users, wantlist=True) }}"
+
+- name: Add pyenv config to bashrc
+  blockinfile:
+    path: "{{ item.value.home }}/.bashrc"
+    backup: yes
+    insertafter: EOF
+    block: |
+      export PATH="$HOME/.pyenv/bin:$PATH"
+      eval "$(pyenv init -)"
+      eval "$(pyenv virtualenv-init -)"
+  loop: "{{ lookup('dict', os_users, wantlist=True) }}"
